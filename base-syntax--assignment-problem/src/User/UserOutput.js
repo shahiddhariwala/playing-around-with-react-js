@@ -5,8 +5,8 @@ import "./style.css";
 const userOutput = (props) => {
   return (
     <div class="box">
-      <p>This paragraph 1 by {props.name}</p>
-      <p>This paragraph 2 by  XYZ</p>
+      <p>I am {props.userName}</p>
+      <p>This paragraph 2 </p>
     </div>
   );
 };
