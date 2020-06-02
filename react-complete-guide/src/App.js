@@ -10,7 +10,6 @@ class App extends Component {
         <Person />
         <Person />
         <Person />
-        <Person />
       </div>
       // <p>Hola</p> not allowed , it is recommended to have one root elements inside it 
       // other elements to be wrapped ( * before React 16);
