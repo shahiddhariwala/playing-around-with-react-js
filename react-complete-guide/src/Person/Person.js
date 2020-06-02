@@ -4,6 +4,11 @@ const person = () => {
   return <p> I am Shahid Dhariwala </p>;
 };
 export default person;
+
+
+
+
+
 /*
 JSX is NOT HTML but it looks a lot like it. Differences can be seen when looking closely though (for example className in JSX vs class in "normal HTML"). JSX is just syntactic sugar for JavaScript, allowing you to write HTMLish code instead of nested React.createElement(...) calls.
 
