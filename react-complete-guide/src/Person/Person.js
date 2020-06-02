@@ -4,7 +4,7 @@ const person = (props) => {
   //react passes paramter internally even if its not mentioned
 
   return (
-    <div>
+    <div onClick={props.click}>
       <p>
         I am {props.name} & I am {props.age} years old
       </p>
