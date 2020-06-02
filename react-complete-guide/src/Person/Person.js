@@ -1,7 +1,9 @@
 import React from "react";
 
-const person = () => {
-return <p> I am Shahid Dhariwala {Math.floor(Math.random()*23)} years old</p>;
+const person = (props) => {
+    //react passes paramter internally even if its not mentioned
+
+return <p> I am {props.name} & I am {props.age} years old</p>;
 };
 export default person;
 
