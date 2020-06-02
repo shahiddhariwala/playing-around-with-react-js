@@ -4,8 +4,10 @@
 /* Anything added to app.js renders globally*/
 body
 {
-  background: #00B4DB;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: rgb(106, 160, 172); 
+  background-image: url('./Resources/luffy.gif');
+  background-size:150%;
+  background-position: center;
+  background-repeat: no-repeat;
   
 }
