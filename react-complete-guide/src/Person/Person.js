@@ -1,10 +1,14 @@
 import React from "react";
 
+// We need to import css , so that webpack can handle it and inject into our bundle
+
+import './Person.css';
+
 const person = (props) => {
   //react passes paramter internally even if its not mentioned
 
   return (
-    <div onClick={props.click}>
+    <div className="Person">
       <p>
         I am {props.name} & I am {props.age} years old
       </p>
