@@ -1,15 +1,18 @@
 import React from "react";
 
 const person = (props) => {
-    //react passes paramter internally even if its not mentioned
+  //react passes paramter internally even if its not mentioned
 
-return <p> I am {props.name} & I am {props.age} years old</p>;
+  return (
+    <div>
+      <p>
+        I am {props.name} & I am {props.age} years old
+      </p>
+      {props.children}
+    </div>
+  );
 };
 export default person;
-
-
-
-
 
 /*
 JSX is NOT HTML but it looks a lot like it. Differences can be seen when looking closely though (for example className in JSX vs class in "normal HTML"). JSX is just syntactic sugar for JavaScript, allowing you to write HTMLish code instead of nested React.createElement(...) calls.
