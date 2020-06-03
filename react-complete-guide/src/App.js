@@ -53,11 +53,16 @@ class App extends Component {
 
     return (
       <div className="App">
+
         <h1>Hi, I am react app</h1>
         <p>Hola</p>
+
+        <img id="funImage" src={luffy} alt="luffy"></img>
+
         <button style={buttonStyle} onClick={this.togglePersonHandler}>
           Hide / Unhide
         </button>
+        
         {this.state.showPersons ? (
           <div>
             <Person
@@ -84,7 +89,7 @@ class App extends Component {
           </div>
         ) : null}
 
-        <img id="funImage" src={luffy} alt="luffy"></img>
+        
       </div>
       // <p>Hola</p> not allowed , it is recommended to have one root elements inside it
       // other elements to be wrapped ( * before React 16);
