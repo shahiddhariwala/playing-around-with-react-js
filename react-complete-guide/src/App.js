@@ -50,10 +50,37 @@ class App extends Component {
       cursor: "pointer",
       letterSpacing: "3px",
     };
+    let persons = null;
 
+    if (this.state.showPersons) {
+      persons = (
+        <div>
+          <Person
+            name={this.state.person[0].name}
+            age={this.state.person[0].age}
+          />
+          <Person
+            name={this.state.person[1].name}
+            age={this.state.person[1].age}
+            click={this.switchNameHandler.bind(
+              this,
+              "Er. Shahid Dhariwala !! "
+            )}
+            changed={this.changeHandler}
+          >
+            <h3> Strawhats : Captain </h3>
+          </Person>
+          <Person
+            name={this.state.person[2].name}
+            age={this.state.person[2].age}
+          >
+            <h4> Strawhats : Vice-Captain / Swordsman </h4>
+          </Person>
+        </div>
+      );
+    }
     return (
       <div className="App">
-
         <h1>Hi, I am react app</h1>
         <p>Hola</p>
 
@@ -62,34 +89,8 @@ class App extends Component {
         <button style={buttonStyle} onClick={this.togglePersonHandler}>
           Hide / Unhide
         </button>
-        
-        {this.state.showPersons ? (
-          <div>
-            <Person
-              name={this.state.person[0].name}
-              age={this.state.person[0].age}
-            />
-            <Person
-              name={this.state.person[1].name}
-              age={this.state.person[1].age}
-              click={this.switchNameHandler.bind(
-                this,
-                "Er. Shahid Dhariwala !! "
-              )}
-              changed={this.changeHandler}
-            >
-              <h3> Strawhats : Captain </h3>
-            </Person>
-            <Person
-              name={this.state.person[2].name}
-              age={this.state.person[2].age}
-            >
-              <h4> Strawhats : Vice-Captain / Swordsman </h4>
-            </Person>
-          </div>
-        ) : null}
 
-        
+        {persons}
       </div>
       // <p>Hola</p> not allowed , it is recommended to have one root elements inside it
       // other elements to be wrapped ( * before React 16);
