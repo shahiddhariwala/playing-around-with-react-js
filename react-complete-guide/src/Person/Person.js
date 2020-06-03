@@ -9,7 +9,7 @@ const person = (props) => {
 
   return (
     <div className="Person">
-      <p>
+      <p onClick={props.click}>
         I am {props.name} & I am {props.age} years old
       </p>
       {props.children}

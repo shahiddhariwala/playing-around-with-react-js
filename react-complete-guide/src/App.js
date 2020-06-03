@@ -40,6 +40,14 @@ class App extends Component {
     const doPerson = this.state.showPersons;
     this.setState({ showPersons: !doPerson });
   };
+
+  deletedHandler = (index) =>
+  {
+    console.log("imahere");
+    const newPerson = [...this.state.person];
+    newPerson.splice(index,1);
+    this.setState({person:newPerson});
+  }
   render() {
     const buttonStyle = {
       backgroundColor: "orange",
@@ -55,27 +63,10 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          <Person
-            name={this.state.person[0].name}
-            age={this.state.person[0].age}
-          />
-          <Person
-            name={this.state.person[1].name}
-            age={this.state.person[1].age}
-            click={this.switchNameHandler.bind(
-              this,
-              "Er. Shahid Dhariwala !! "
-            )}
-            changed={this.changeHandler}
-          >
-            <h3> Strawhats : Captain </h3>
-          </Person>
-          <Person
-            name={this.state.person[2].name}
-            age={this.state.person[2].age}
-          >
-            <h4> Strawhats : Vice-Captain / Swordsman </h4>
-          </Person>
+          {this.state.person.map((person,index)=>
+          {
+            return <Person click={()=>this.deletedHandler(index)} name={person.name} age={person.age}/>
+          })}
         </div>
       );
     }
