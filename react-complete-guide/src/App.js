@@ -6,9 +6,9 @@ import luffy from "./Resources/luffy.gif";
 class App extends Component {
   state = {
     person: [
-      {id:'asds1d',name: "Shahid", age: 23 },
-      {id:'as2dsd',name: "Luffy", age: 18 },
-      {id:'asd4sd',name: "Zoro", age: 30 },
+      { id: "asds1d", name: "Shahid", age: 23 },
+      { id: "as2dsd", name: "Luffy", age: 18 },
+      { id: "asd4sd", name: "Zoro", age: 30 },
     ],
     otherState: "This is some state",
     showPersons: false,
@@ -26,14 +26,19 @@ class App extends Component {
     });
   };
 
-  changeHandler = (event) => {
-    this.setState({
-      person: [
-        { name: "Shahid", age: 23 },
-        { name: event.target.value, age: 18 },
-        { name: "Zoro", age: 30 },
-      ],
+  changeHandler = (event, id) => {
+    const personIndex = this.state.person.findIndex((p) => {
+      return p.id === id;
     });
+
+    const person = { ...this.state.person[personIndex] };
+
+    person.name = event.target.value;
+
+    const newPersons = [...this.state.person];
+    newPersons[personIndex] = person;
+
+    this.setState({ person: newPersons });
   };
 
   togglePersonHandler = () => {
@@ -41,13 +46,12 @@ class App extends Component {
     this.setState({ showPersons: !doPerson });
   };
 
-  deletedHandler = (index) =>
-  {
+  deletedHandler = (index) => {
     console.log("imahere");
     const newPerson = [...this.state.person];
-    newPerson.splice(index,1);
-    this.setState({person:newPerson});
-  }
+    newPerson.splice(index, 1);
+    this.setState({ person: newPerson });
+  };
   render() {
     const buttonStyle = {
       backgroundColor: "orange",
@@ -63,9 +67,16 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          {this.state.person.map((person,index)=>
-          {
-            return <Person key={person.id} click={()=>this.deletedHandler(index)} name={person.name} age={person.age}/>
+          {this.state.person.map((person, index) => {
+            return (
+              <Person
+                key={person.id}
+                click={() => this.deletedHandler(index)}
+                name={person.name}
+                age={person.age}
+                changed={(event) => this.changeHandler(event, person.id)}
+              />
+            );
           })}
         </div>
       );
