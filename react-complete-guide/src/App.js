@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import Person from "./Person/Person";
+import luffy from "./Resources/luffy.gif";
+
 class App extends Component {
   state = {
     person: [
@@ -8,6 +10,8 @@ class App extends Component {
       { name: "Luffy", age: 18 },
       { name: "Zoro", age: 30 },
     ],
+    otherState:'This is some state',
+    showPersons:false
   };
 
   switchNameHandler = (newName) => {
@@ -31,6 +35,12 @@ class App extends Component {
       ],
     });
   };
+
+  togglePersonHandler = () =>
+  {
+    const doPerson = this.state.showPersons;
+    this.setState({showPersons:!doPerson});
+  }
   render() {
     const buttonStyle = {
       backgroundColor: "orange",
@@ -39,6 +49,7 @@ class App extends Component {
       border: "3px solid green",
       borderRadius: "200px",
       cursor: "pointer",
+      letterSpacing: '3px'
     };
 
     return (
@@ -47,10 +58,12 @@ class App extends Component {
         <p>Hola</p>
         <button
           style={buttonStyle}
-          onClick={this.switchNameHandler.bind(this, "Shahid Dhariwala")}
+          onClick={this.togglePersonHandler}
         >
-          Switch Name
+          Hide / Unhide
         </button>
+        {this.state.showPersons ? 
+        <div> 
         <Person
           name={this.state.person[0].name}
           age={this.state.person[0].age}
@@ -66,6 +79,10 @@ class App extends Component {
         <Person name={this.state.person[2].name} age={this.state.person[2].age}>
           <h4> Strawhats : Vice-Captain / Swordsman </h4>
         </Person>
+        </div> : null
+  }
+
+      <img id="funImage" src={luffy} alt="luffy"></img>
       </div>
       // <p>Hola</p> not allowed , it is recommended to have one root elements inside it
       // other elements to be wrapped ( * before React 16);
