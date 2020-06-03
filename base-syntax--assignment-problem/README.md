@@ -1,3 +1,6 @@
+# Assignement Base Syntax (Final App)
+![Final App SS](https://github.com/shahiddhariwala/playing-around-with-react-js/blob/master/base-syntax--assignment-problem/finalApSS.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
