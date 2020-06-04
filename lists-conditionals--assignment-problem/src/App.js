@@ -1,19 +1,21 @@
 import React, { Component } from "react";
 import "./App.css";
-import Validation from './Validation/Validation';
-class App extends Component {
-//State
-  state={
-    strLen : 0
-  }
 
+import Validation from "./Validation/Validation";
+import Char from "./Character/Character";
+
+class App extends Component {
+  //State
+  state = {
+    strLen: 0,
+  };
 
   //  Handler Methods
 
   outputLengthHandler = (event) => {
     const strLen = event.target.value.length;
-    document.querySelector(".output").innerHTML =strLen;
-    this.setState({strLen:strLen});
+    document.querySelector(".output").innerHTML = strLen;
+    this.setState({ strLen: strLen });
   };
 
   render() {
@@ -43,8 +45,12 @@ class App extends Component {
         </div>
 
         <div className="task task2">
-          <Validation length={this.state.strLen}/>
+          <Validation length={this.state.strLen} />
         </div>
+        <div className="task task3">
+          <Char />
+        </div>
+
         {/* Footer */}
         <p style={style}>&copy; Shahid Dhariwala</p>
       </div>
