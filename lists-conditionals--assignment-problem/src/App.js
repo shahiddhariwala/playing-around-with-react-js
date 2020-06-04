@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 import "./App.css";
-
+import Validation from './Validation/Validation';
 class App extends Component {
+//State
+  state={
+    strLen : 0
+  }
+
+
   //  Handler Methods
 
   outputLengthHandler = (event) => {
-    const str = event.target.value;
-    document.querySelector(".output").innerHTML = str.length;
+    const strLen = event.target.value.length;
+    document.querySelector(".output").innerHTML =strLen;
+    this.setState({strLen:strLen});
   };
 
   render() {
@@ -27,12 +34,16 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="task1">
+        <div className="task task1">
           <label>
             <b>Type Something : </b>
           </label>
           <input type="text" onChange={this.outputLengthHandler}></input>
           <p className="output">0</p>
+        </div>
+
+        <div className="task task2">
+          <Validation length={this.state.strLen}/>
         </div>
         {/* Footer */}
         <p style={style}>&copy; Shahid Dhariwala</p>
