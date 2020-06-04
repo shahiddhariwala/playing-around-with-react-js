@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import Person from "./Person/Person";
 import luffy from "./Resources/luffy.gif";
+import Radium from 'radium';
+
 
 class App extends Component {
   state = {
@@ -61,6 +63,10 @@ class App extends Component {
       borderRadius: "200px",
       cursor: "pointer",
       letterSpacing: "3px",
+      ':hover':{
+        backgroundColor: 'lightgreen',
+        color: 'blue'
+      }
     };
     let persons = null;
 
@@ -82,6 +88,10 @@ class App extends Component {
       );
 
       buttonStyle.backgroundColor = '#1FA2FF';
+      buttonStyle[':hover'] = {
+        backgroundColor: 'salmon',
+        color: 'gray'
+      }
     }
 
     const classes = [];
@@ -114,4 +124,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);
