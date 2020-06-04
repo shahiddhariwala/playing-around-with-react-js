@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Person from "./Person/Person";
 import luffy from "./Resources/luffy.gif";
-import Radium from 'radium';
+import Radium, {StyleRoot} from 'radium';
 
 
 class App extends Component {
@@ -104,6 +104,7 @@ class App extends Component {
       classes.push('bold');
     }
     return (
+      <StyleRoot>
       <div className="App">
         <h1>Hi, I am react app</h1>
         <p className={classes.join(' ')}>This is a working app</p>
@@ -116,6 +117,7 @@ class App extends Component {
 
         {persons}
       </div>
+      </StyleRoot>
       // <p>Hola</p> not allowed , it is recommended to have one root elements inside it
       // other elements to be wrapped ( * before React 16);
     );
