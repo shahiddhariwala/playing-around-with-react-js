@@ -7,17 +7,22 @@ import Char from "./Character/Character";
 class App extends Component {
   //State
   state = {
+    str: "",
     strLen: 0,
   };
 
   //  Handler Methods
-
   outputLengthHandler = (event) => {
     const strLen = event.target.value.length;
     document.querySelector(".output").innerHTML = strLen;
-    this.setState({ strLen: strLen });
+    this.setState({ str: event.target.value, strLen: strLen });
   };
 
+  deleteCharHandler = (event, index) => {
+    let newString = this.state.str.split("");
+    newString.splice(index,1);
+    this.setState({ str: newString.join(""), strLen: newString.length });
+  };
   render() {
     // footer style
     const style = {
@@ -34,6 +39,22 @@ class App extends Component {
       fontSize: "large",
     };
 
+    let chars = null;
+    if (this.state.strLen !== 0) {
+      chars = (
+        <div className="task task3">
+          {this.state.str.split("").map((char, index) => {
+            return (
+              <Char
+                letter={char}
+                click={(event) => this.deleteCharHandler(event, index)}
+                key={index}
+              />
+            );
+          })}
+        </div>
+      );
+    }
     return (
       <div className="App">
         <div className="task task1">
@@ -47,9 +68,7 @@ class App extends Component {
         <div className="task task2">
           <Validation length={this.state.strLen} />
         </div>
-        <div className="task task3">
-          <Char />
-        </div>
+        {chars}
 
         {/* Footer */}
         <p style={style}>&copy; Shahid Dhariwala</p>
