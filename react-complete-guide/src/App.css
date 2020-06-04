@@ -14,3 +14,13 @@ background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+
   position: fixed;
   bottom: 0;
 }
+
+.red
+{
+  color: red;
+}
+
+.bold
+{
+  font-weight: bold;
+}
