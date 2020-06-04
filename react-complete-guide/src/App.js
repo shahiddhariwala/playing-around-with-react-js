@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import "./App.css";
+import classes from './App.css';
 import Person from "./Person/Person";
 import luffy from "./Resources/luffy.gif";
-import Radium, {StyleRoot} from 'radium';
 
 
 class App extends Component {
@@ -55,21 +54,9 @@ class App extends Component {
     this.setState({ person: newPerson });
   };
   render() {
-    const buttonStyle = {
-      backgroundColor: "#A6FFCB",
-      padding: "10px",
-      font: "San-serif",
-      border: "3px solid green",
-      borderRadius: "200px",
-      cursor: "pointer",
-      letterSpacing: "3px",
-      ':hover':{
-        backgroundColor: 'lightgreen',
-        color: 'blue'
-      }
-    };
-    let persons = null;
 
+    let persons = null;
+    let btnClass="";
     if (this.state.showPersons) {
       persons = (
         <div>
@@ -86,38 +73,32 @@ class App extends Component {
           })}
         </div>
       );
-
-      buttonStyle.backgroundColor = '#1FA2FF';
-      buttonStyle[':hover'] = {
-        backgroundColor: 'salmon',
-        color: 'gray'
-      }
+      btnClass = classes.Red;
+    
     }
 
-    const classes = [];
+    const assignedClasses = [];
     if(this.state.person.length <=2)
     {
-      classes.push('red');
+      assignedClasses.push(classes.red);
     }
     if(this.state.person.length <=1)
     {
-      classes.push('bold');
+      assignedClasses.push(classes.bold);
     }
     return (
-      <StyleRoot>
-      <div className="App">
+      <div className={classes.App}>
         <h1>Hi, I am react app</h1>
-        <p className={classes.join(' ')}>This is a working app</p>
+        <p className={assignedClasses.join(' ')}>This is a working app</p>
 
-        <img id="funImage" src={luffy} alt="luffy"></img>
+        <img id={classes.funImage} src={luffy} alt="luffy"></img>
 
-        <button style={buttonStyle} onClick={this.togglePersonHandler}>
+        <button  className={btnClass} onClick={this.togglePersonHandler}>
           Hide / Unhide
         </button>
 
         {persons}
       </div>
-      </StyleRoot>
       // <p>Hola</p> not allowed , it is recommended to have one root elements inside it
       // other elements to be wrapped ( * before React 16);
     );
@@ -126,4 +107,4 @@ class App extends Component {
   }
 }
 
-export default Radium(App);
+export default App;
