@@ -14,13 +14,12 @@ class App extends Component {
   //  Handler Methods
   outputLengthHandler = (event) => {
     const strLen = event.target.value.length;
-    document.querySelector(".output").innerHTML = strLen;
     this.setState({ str: event.target.value, strLen: strLen });
   };
 
   deleteCharHandler = (event, index) => {
     let newString = this.state.str.split("");
-    newString.splice(index,1);
+    newString.splice(index, 1);
     this.setState({ str: newString.join(""), strLen: newString.length });
   };
   render() {
@@ -61,8 +60,12 @@ class App extends Component {
           <label>
             <b>Type Something : </b>
           </label>
-          <input type="text" onChange={this.outputLengthHandler}></input>
-          <p className="output">0</p>
+          <input
+            type="text"
+            onChange={this.outputLengthHandler}
+            value={this.state.str}
+          ></input>
+          <p className="output">{this.state.strLen}</p>
         </div>
 
         <div className="task task2">
