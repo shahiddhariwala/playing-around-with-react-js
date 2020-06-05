@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import classes from './App.css';
-import Person from "../components/Persons/Person/Person";
+import Persons from "../components/Persons/Persons";
 import luffy from "../assets/luffy.gif";
-
+import Cockpit from "../components/Cockpit/Cockpits";
 
 class App extends Component {
   state = {
@@ -56,48 +56,30 @@ class App extends Component {
   render() {
 
     let persons = null;
-    let btnClass="";
     if (this.state.showPersons) {
       persons = (
-        <div>
-          {this.state.person.map((person, index) => {
-            return (
-              <Person
-                key={person.id}
-                click={() => this.deletedHandler(index)}
-                name={person.name}
-                age={person.age}
-                changed={(event) => this.changeHandler(event, person.id)}
-              />
-            );
-          })}
-        </div>
+          <Persons 
+          persons={this.state.person} 
+          clicked={this.deletedHandler} 
+          changed={this.changeHandler}/>
       );
-      btnClass = classes.Red;
+
     
     }
 
-    const assignedClasses = [];
-    if(this.state.person.length <=2)
-    {
-      assignedClasses.push(classes.red);
-    }
-    if(this.state.person.length <=1)
-    {
-      assignedClasses.push(classes.bold);
-    }
+
     return (
       <div className={classes.App}>
-        <h1>Hi, I am react app</h1>
-        <p className={assignedClasses.join(' ')}>This is a working app</p>
-
-        <img id={classes.funImage} src={luffy} alt="luffy"></img>
-
-        <button  className={btnClass} onClick={this.togglePersonHandler}>
-          Hide / Unhide
-        </button>
-
+       
+        <Cockpit
+        showPersons = {this.state.showPersons}
+        person = {this.state.person}
+        clicked={this.togglePersonHandler}
+        />
         {persons}
+
+        {/*for fun  */}
+        <img id={classes.funImage} src={luffy} alt="luffy"></img>
       </div>
       // <p>Hola</p> not allowed , it is recommended to have one root elements inside it
       // other elements to be wrapped ( * before React 16);
