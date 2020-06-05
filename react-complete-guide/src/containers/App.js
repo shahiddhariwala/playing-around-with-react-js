@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import classes from './App.css';
-import Person from "./Person/Person";
-import luffy from "./Resources/luffy.gif";
+import Person from "../components/Persons/Person/Person";
+import luffy from "../assets/luffy.gif";
 
 
 class App extends Component {
