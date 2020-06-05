@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import classes from './App.css';
 import Persons from "../components/Persons/Persons";
 import luffy from "../assets/luffy.gif";
-import Cockpit from "../components/Cockpit/Cockpits";
+import Cockpit from "../components/Cockpit/Cockpit";
 
 class App extends Component {
   state = {
@@ -72,6 +72,7 @@ class App extends Component {
       <div className={classes.App}>
        
         <Cockpit
+        title={this.props.appTitle}
         showPersons = {this.state.showPersons}
         person = {this.state.person}
         clicked={this.togglePersonHandler}
