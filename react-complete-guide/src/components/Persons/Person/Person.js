@@ -5,6 +5,7 @@ import classes from "./Person.css";
 
 const person = (props) => {
   //react passes paramter internally even if its not mentioned
+  console.log('[Person.js] rendering...');
 
   return (
     <div className={classes.Person} >

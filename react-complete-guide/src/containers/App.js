@@ -1,10 +1,14 @@
 import React, { Component } from "react";
-import classes from './App.css';
+import classes from "./App.css";
 import Persons from "../components/Persons/Persons";
 import luffy from "../assets/luffy.gif";
 import Cockpit from "../components/Cockpit/Cockpit";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    console.log("[App.js] constructor");
+  }
   state = {
     person: [
       { id: "asds1d", name: "Shahid", age: 23 },
@@ -14,6 +18,13 @@ class App extends Component {
     otherState: "This is some state",
     showPersons: false,
   };
+  static getDerivedStateFromProps(props, state) {
+    console.log("[App.js] getDerivedStateFromProps", props);
+    return state;
+  }
+  componentDidMount() {
+      console.log('[App.js] componentDidMount');
+  }
 
   switchNameHandler = (newName) => {
     // console.log("I was clicked");
@@ -48,34 +59,31 @@ class App extends Component {
   };
 
   deletedHandler = (index) => {
-    console.log("imahere");
     const newPerson = [...this.state.person];
     newPerson.splice(index, 1);
     this.setState({ person: newPerson });
   };
-  render() {
 
+  render() {
+    console.log("[App.js] render");
     let persons = null;
     if (this.state.showPersons) {
       persons = (
-          <Persons 
-          persons={this.state.person} 
-          clicked={this.deletedHandler} 
-          changed={this.changeHandler}/>
+        <Persons
+          persons={this.state.person}
+          clicked={this.deletedHandler}
+          changed={this.changeHandler}
+        />
       );
-
-    
     }
-
 
     return (
       <div className={classes.App}>
-       
         <Cockpit
-        title={this.props.appTitle}
-        showPersons = {this.state.showPersons}
-        person = {this.state.person}
-        clicked={this.togglePersonHandler}
+          title={this.props.appTitle}
+          showPersons={this.state.showPersons}
+          person={this.state.person}
+          clicked={this.togglePersonHandler}
         />
         {persons}
 
