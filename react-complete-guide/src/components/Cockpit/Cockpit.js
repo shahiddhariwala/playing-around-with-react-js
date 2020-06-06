@@ -10,23 +10,15 @@ const cockpit = (props) => {
     this means we can already use it for
     all the things we would have done in componentDidUupdate and indeed that is OK.
      If you need to send
-an HTTP request or anything like that in here, 
-you can do that. It also obviously runs when the
-component is created,  */
-  });
-
-  useEffect(() => {
-    setTimeout(()=>{
-      alert('Welcome Hoomans (eexcuted first time because we passed empty array[] to useEffect react hook)')
-
-    },1000)
+    an HTTP request or anything like that in here, 
+    you can do that. It also obviously runs when the
+    component is created,  
+    
+    Empty arrays will execute oinly for dependency change*
+    */
   },[]);
 
-  useEffect(() => {
-    console.log('for persons update');
-  },[props.person]);
 
-  
   const assignedClasses = [];
   let btnClass = "";
   if (props.showPersons) {
