@@ -1,23 +1,25 @@
-import React from "react";
+import React, { Component } from "react";
 // We need to import css , so that webpack can handle it and inject into our bundle
 
 import classes from "./Person.css";
+import { render } from "react-dom";
 
-const person = (props) => {
-  //react passes paramter internally even if its not mentioned
-  console.log('[Person.js] rendering...');
-
-  return (
-    <div className={classes.Person} >
-      <p onClick={props.click}>
-        I am {props.name} & I am {props.age} years old
-      </p>
-      {props.children}
-      <input type="text" onChange={props.changed} value={props.name} />
-    </div>
-  );
-};
-export default person;
+class Person extends Component {
+  render() {
+    //react passes paramter internally even if its not mentioned
+    console.log("[Person.js] rendering...");
+    return (
+      <div className={classes.Person}>
+        <p onClick={this.props.click}>
+          I am {this.props.name} & I am {this.props.age} years old
+        </p>
+        {this.props.children}
+        <input type="text" onChange={this.props.changed} value={this.props.name} />
+      </div>
+    );
+  }
+}
+export default Person;
 
 /*
 JSX is NOT HTML but it looks a lot like it. Differences can be seen when looking closely though (for example className in JSX vs class in "normal HTML"). JSX is just syntactic sugar for JavaScript, allowing you to write HTMLish code instead of nested React.createElement(...) calls.
