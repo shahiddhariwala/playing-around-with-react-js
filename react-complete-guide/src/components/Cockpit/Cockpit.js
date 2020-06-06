@@ -14,6 +14,19 @@ an HTTP request or anything like that in here,
 you can do that. It also obviously runs when the
 component is created,  */
   });
+
+  useEffect(() => {
+    setTimeout(()=>{
+      alert('Welcome Hoomans (eexcuted first time because we passed empty array[] to useEffect react hook)')
+
+    },1000)
+  },[]);
+
+  useEffect(() => {
+    console.log('for persons update');
+  },[props.person]);
+
+  
   const assignedClasses = [];
   let btnClass = "";
   if (props.showPersons) {
