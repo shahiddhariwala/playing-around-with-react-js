@@ -18,6 +18,7 @@ class App extends Component {
     otherState: "This is some state",
     showPersons: false,
   };
+
   static getDerivedStateFromProps(props, state) {
     console.log("[App.js] getDerivedStateFromProps", props);
     return state;
@@ -26,6 +27,16 @@ class App extends Component {
       console.log('[App.js] componentDidMount');
   }
 
+  shouldComponentUpdate(nextProps,nextState)
+  {
+    console.log('[App.js] shouldComponentUpdate');
+    return true;
+  }
+
+  componentDidUpdate()
+  {
+    console.log('[App.js] componentDidUpdate');
+  }
   switchNameHandler = (newName) => {
     // console.log("I was clicked");
     // DONT DO THIS : this.state.person[0]="Zain";
