@@ -2,10 +2,12 @@ import React, { Component } from "react";
 
 import Courses from "./containers/Courses/Courses";
 import Users from "./containers/Users/Users";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 class App extends Component {
   render() {
+
+
     return (
       <div className="App">
         <ol style={{ textAlign: "left" }}>
@@ -37,15 +39,24 @@ class App extends Component {
             page)
           </li>
         </ol>
-        <nav className="nav">
-        <a href='/users'> <button>Users</button></a>
-        <a href='/courses'> <button>Courses</button></a>
-        </nav>
+
         <BrowserRouter>
-          <Switch>
-            <Route path="/users" component={Users} />
-            <Route path="/courses" component={Courses} />
-          </Switch>
+          <div>
+            <nav>
+              <ul >
+                <li>
+                  <Link to="/users">Users Page</Link>
+                </li>
+                <li>
+                  <Link to="/courses">Courses Page</Link>
+                </li>
+              </ul>
+            </nav>
+            <Switch>
+              <Route path="/users" component={Users} />
+              <Route path="/courses" component={Courses} />
+            </Switch>
+          </div>
         </BrowserRouter>
       </div>
     );
