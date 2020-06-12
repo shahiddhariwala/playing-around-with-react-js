@@ -24,13 +24,17 @@ class App extends Component {
             </del>
           </li>
           <li>
-          <del>
-            Make the courses in "Courses" clickable by adding a link and load
-            the "Course" component in the place of "Courses" (without passing
-            any data for now)
+            <del>
+              Make the courses in "Courses" clickable by adding a link and load
+              the "Course" component in the place of "Courses" (without passing
+              any data for now)
             </del>
           </li>
-          <li>Pass the course ID to the "Course" page and output it there</li>
+          <li>
+            <del>
+              Pass the course ID to the "Course" page and output it there
+            </del>
+          </li>
           <li>
             Pass the course title to the "Course" page - pass it as a param or
             score bonus points by passing it as query params (you need to
@@ -49,18 +53,18 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <nav>
-              <ul style={{listStyle:'none',padding: '0px'}}>
-                <li style={{display:'inline-block',margin:'10px'}}>
+              <ul style={{ listStyle: "none", padding: "0px" }}>
+                <li style={{ display: "inline-block", margin: "10px" }}>
                   <NavLink to="/users">Users Page</NavLink>
                 </li>
-                <li style={{display:'inline-block',margin:'10px'}}>
+                <li style={{ display: "inline-block", margin: "10px" }}>
                   <NavLink to="/courses">Courses Page</NavLink>
                 </li>
               </ul>
             </nav>
             <Switch>
               <Route path="/users" component={Users} />
-              <Route path="/courses/course" component={Course} />
+              <Route path="/courses/:id" component={Course} />
               <Route path="/courses" component={Courses} />
             </Switch>
           </div>
