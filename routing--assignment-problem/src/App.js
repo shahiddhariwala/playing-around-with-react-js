@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import Courses from "./containers/Courses/Courses";
 import Users from "./containers/Users/Users";
-import Course from "./containers/Course/Course";
 import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
 
 class App extends Component {
@@ -43,7 +42,8 @@ class App extends Component {
             </del>
           </li>
           <li>
-            Load the "Course" component as a nested component of "Courses"
+            <del>
+            Load the "Course" component as a nested component of "Courses"</del>
           </li>
           <li>Add a 404 error page and render it for any unknown routes</li>
           <li>
@@ -66,7 +66,7 @@ class App extends Component {
             </nav>
             <Switch>
               <Route path="/users" component={Users} />
-              <Route path="/courses/:id" component={Course} />
+              
               <Route path="/courses" component={Courses} />
             </Switch>
           </div>
