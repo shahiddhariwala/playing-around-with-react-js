@@ -36,9 +36,11 @@ class App extends Component {
             </del>
           </li>
           <li>
-            Pass the course title to the "Course" page - pass it as a param or
-            score bonus points by passing it as query params (you need to
-            manually parse them though!)
+            <del>
+              Pass the course title to the "Course" page - pass it as a param or
+              score bonus points by passing it as query params (you need to
+              manually parse them though!)
+            </del>
           </li>
           <li>
             Load the "Course" component as a nested component of "Courses"
