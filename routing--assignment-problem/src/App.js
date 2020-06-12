@@ -2,7 +2,14 @@ import React, { Component } from "react";
 
 import Courses from "./containers/Courses/Courses";
 import Users from "./containers/Users/Users";
-import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Switch,
+  NavLink,
+  Redirect,
+} from "react-router-dom";
+import NoMatch from "./components/NoMatch/NoMatch";
 
 class App extends Component {
   render() {
@@ -43,12 +50,17 @@ class App extends Component {
           </li>
           <li>
             <del>
-            Load the "Course" component as a nested component of "Courses"</del>
+              Load the "Course" component as a nested component of "Courses"
+            </del>
           </li>
-          <li>Add a 404 error page and render it for any unknown routes</li>
           <li>
-            Redirect requests to /all-courses to /courses (=> Your "Courses"
-            page)
+            <del>Add a 404 error page and render it for any unknown routes</del>
+          </li>
+          <li>
+            <del>
+              Redirect requests to /all-courses to /courses (=> Your "Courses"
+              page)
+            </del>
           </li>
         </ol>
 
@@ -66,8 +78,11 @@ class App extends Component {
             </nav>
             <Switch>
               <Route path="/users" component={Users} />
-              
+
               <Route path="/courses" component={Courses} />
+
+              <Redirect from="/all-courses" to="/courses" />
+              <Route component={NoMatch} />
             </Switch>
           </div>
         </BrowserRouter>
