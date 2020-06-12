@@ -2,27 +2,33 @@ import React, { Component } from "react";
 
 import Courses from "./containers/Courses/Courses";
 import Users from "./containers/Users/Users";
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import Course from "./containers/Course/Course";
+import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
 
 class App extends Component {
   render() {
-
-
     return (
       <div className="App">
         <ol style={{ textAlign: "left" }}>
           <li>
-            Add Routes to load "Users" and "Courses" on different pages (by
-            entering a URL, without Links)
+            <del>
+              {" "}
+              Add Routes to load "Users" and "Courses" on different pages (by
+              entering a URL, without Links){" "}
+            </del>
           </li>
           <li>
-            Add a simple navigation with two links => One leading to "Users",
-            one leading to "Courses"
+            <del>
+              Add a simple navigation with two links => One leading to "Users",
+              one leading to "Courses"
+            </del>
           </li>
           <li>
+          <del>
             Make the courses in "Courses" clickable by adding a link and load
             the "Course" component in the place of "Courses" (without passing
             any data for now)
+            </del>
           </li>
           <li>Pass the course ID to the "Course" page and output it there</li>
           <li>
@@ -43,17 +49,18 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <nav>
-              <ul >
-                <li>
-                  <Link to="/users">Users Page</Link>
+              <ul style={{listStyle:'none',padding: '0px'}}>
+                <li style={{display:'inline-block',margin:'10px'}}>
+                  <NavLink to="/users">Users Page</NavLink>
                 </li>
-                <li>
-                  <Link to="/courses">Courses Page</Link>
+                <li style={{display:'inline-block',margin:'10px'}}>
+                  <NavLink to="/courses">Courses Page</NavLink>
                 </li>
               </ul>
             </nav>
             <Switch>
               <Route path="/users" component={Users} />
+              <Route path="/courses/course" component={Course} />
               <Route path="/courses" component={Courses} />
             </Switch>
           </div>
