@@ -2,9 +2,9 @@
     width: 150px;
     padding: 20px;
     box-sizing: border-box;
-    margin: 16px;
+    margin: 100px 16px;
     border: 1px solid #eee;
-    box-shadow: 0 4px 3px rgb(0, 0, 0);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-weight: bold;
     text-align: center;
     cursor: pointer;
