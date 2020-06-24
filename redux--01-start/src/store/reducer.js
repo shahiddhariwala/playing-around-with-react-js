@@ -1,6 +1,6 @@
 const initialState = {
   counter: 0,
-  results: []
+  results: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -22,13 +22,21 @@ const reducer = (state = initialState, action) => {
       };
     case "SUBTRACT":
       return {
-          ...state,
+        ...state,
         counter: state.counter - action.value,
       };
     case "STORE_RESULT":
       return {
         ...state,
-        results : state.results.concat({id: new Date() ,value : state.counter})
+        results: state.results.concat({ id: new Date(), value: state.counter }),
+      };
+    case "DELETE_RESULT":
+      const updatedArray = state.results.filter(
+        (result) => result.id !== action.resultElementID
+      );
+      return {
+        ...state,
+        results: updatedArray,
       };
     default:
       return state;
