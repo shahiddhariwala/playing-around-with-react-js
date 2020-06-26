@@ -8,6 +8,7 @@ import registerServiceWorker from "./registerServiceWorker";
 import counterReducer from "./store/reducer/counter";
 import resultReducer from "./store/reducer/result";
 
+//Multiple reducer
 const rootReducer = combineReducers({
   ctr: counterReducer,
   res: resultReducer,
